@@ -1,0 +1,329 @@
+/* Reeco Design System — Colors & Type tokens
+ * Source: Reeco Brandbook 2026 (Figma) — the canonical brand book.
+ *
+ * Color usage rules from the brand book:
+ *   80% primary  (Mint)
+ *   20% secondary + accent (Navy, Rose, Sky, Sun, Stone)
+ *   Always maintain sufficient contrast for accessibility
+ *   Be consistent across platforms and materials
+ *
+ * Type rules:
+ *   Inter is the primary face ("Simplified with Inter").
+ *   Maintain consistent hierarchy. Use lowercase for friendly feel.
+ *   Don't use more than 2–3 weights on a single page.
+ */
+
+/* Inter — local variable font (covers weights 100–900 + italics) */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-v20-latin.woff2') format('woff2-variations'),
+       url('fonts/Inter-v20-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-v20-latin.woff2') format('woff2-variations'),
+       url('fonts/Inter-v20-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ──────────────── BRAND COLORS — CORE ──────────────── */
+  /* Primary — Mint Green (80% usage). CTA, key headlines, main UI. */
+  --reeco-mint:        #2BCC89;
+  /* Secondary — Navy. Headlines, secondary buttons, accents. Pairs with Mint. */
+  --reeco-navy:        #0A184A;
+  /* Secondary — Rose. Highlights, action-required CTAs, warnings, notifications. */
+  --reeco-rose:        #FF479A;
+  /* Tertiary — Sky. Links, info, progress indicators. */
+  --reeco-sky:         #3BB0F4;
+  /* Tertiary — Sun. Corp, budget warnings, accents. */
+  --reeco-sun:         #F6BE00;
+  /* Neutral — Stone. Body text, subtle UI. Stone 400 = disabled. */
+  --reeco-stone:       #353535;
+
+  /* ──────────────── MINT SCALE ──────────────── */
+  /* 900 → 50, deep teal → ghost mint */
+  --mint-900:          #1A5E6D;
+  --mint-800:          #22917A;
+  --mint-700:          #22A872;   /* Forest Green — hover/pressed for primary */
+  --mint-500:          #2BCC89;   /* core */
+  --mint-300:          #6BDBAC;
+  --mint-200:          #B7EED7;   /* card edges, borders on mint panels */
+  --mint-100:          #DDF7EC;   /* tag bg, table-row hover on mint */
+  --mint-50:           #F2FCF8;   /* subtle accent panel */
+
+  /* ──────────────── NAVY SCALE ──────────────── */
+  --navy-900:          #0A184A;   /* core — deepest brand navy */
+  --navy-800:          #102676;
+  --navy-600:          #5D6CA2;
+  --navy-400:          #96A0C3;
+  --navy-300:          #BCC2D9;
+  --navy-200:          #E2E5EF;
+  --navy-100:          #F5F6F9;
+
+  /* ──────────────── ROSE SCALE ──────────────── */
+  --rose-500:          #FF479A;   /* core */
+  --rose-300:          #FF98C6;
+  --rose-200:          #FFC0DD;
+  --rose-100:          #FFE9F3;
+
+  /* ──────────────── SKY SCALE ──────────────── */
+  --sky-500:           #3BB0F4;   /* core */
+  --sky-400:           #62C0F6;
+  --sky-200:           #BCE4FB;
+  --sky-100:           #E7F6FE;
+
+  /* ──────────────── SUN SCALE ──────────────── */
+  --sun-500:           #F6BE00;   /* core */
+  --sun-400:           #F8CB33;
+  --sun-200:           #FBE28F;
+  --sun-100:           #FDEFC2;
+
+  /* ──────────────── STONE SCALE (NEUTRALS) ──────────────── */
+  --stone-900:         #353535;   /* core — body text */
+  --stone-700:         #5D5D5D;
+  --stone-500:         #9A9A9A;   /* stone 400/500 — disabled */
+  --stone-400:         #C2C2C2;
+  --stone-300:         #E1E1E1;   /* borders, dividers */
+  --stone-200:         #F1F1F1;   /* subtle fill */
+  --stone-100:         #F9F9F9;   /* page background */
+  --white:             #FFFFFF;
+
+  /* ──────────────── STATUS ──────────────── */
+  /* Status uses brand palette directly. */
+  --status-success:    var(--mint-500);
+  --status-success-bg: var(--mint-100);
+  --status-info:       var(--sky-500);
+  --status-info-bg:    var(--sky-100);
+  --status-warning:    var(--sun-500);
+  --status-warning-bg: var(--sun-100);
+  --status-danger:     var(--rose-500);
+  --status-danger-bg:  var(--rose-100);
+
+  /* ──────────────── SEMANTIC FG / BG / BORDER ──────────────── */
+  /* Heading/primary text uses Stone (per brand book — Navy is for accents, not body). */
+  --fg-1:              var(--stone-900);   /* Headings, primary text */
+  --fg-2:              var(--stone-700);   /* Body */
+  --fg-3:              var(--stone-500);   /* Secondary / meta */
+  --fg-accent:         var(--mint-500);    /* Mint headlines, eyebrows */
+  --fg-on-dark:        var(--white);
+  --fg-on-mint:        var(--white);
+  --fg-link:           var(--sky-500);     /* Inter Semi-bold per brand book */
+
+  --bg-app:            var(--stone-100);
+  --bg-surface:        var(--white);
+  --bg-subtle:         var(--stone-200);
+  --bg-accent:         var(--mint-100);
+  --bg-dark:           var(--navy-900);
+
+  --border-1:          var(--stone-300);
+  --border-2:          var(--mint-200);
+  --border-dark:       var(--navy-200);
+
+  /* ──────────────── TYPOGRAPHY ──────────────── */
+  /* Inter is Reeco's primary face ("Simplified with Inter" — brand book). */
+  --font-sans:         'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:         'SFMono-Regular', 'Courier New', ui-monospace, monospace;
+
+  /* Weights actively used (brand book limits to 2–3 per page):
+   *   Black, Bold, Semi-bold, Regular. */
+  --fw-regular:        400;
+  --fw-medium:         500;
+  --fw-semi:           600;
+  --fw-bold:           700;
+  --fw-black:          900;
+
+  /* Type scale.
+   * Brand book H1 = 32/36 Black, H2 = 24/28 Bold, H3 = 18/22 Bold,
+   * Body = 12–14 Regular, Links = 12/14 Semi-bold.
+   * Brand book also defines a display scale: 52px section titles,
+   * 100–240px hero numerals. */
+  --fs-hero:           96px;     /* cover-scale display */
+  --fs-display:        52px;     /* section-opener title (brand book) */
+  --fs-h1:             32px;     /* H1 (brand book) */
+  --fs-h2:             24px;     /* H2 */
+  --fs-h3:             18px;     /* H3 */
+  --fs-body-lg:        16px;
+  --fs-body:           14px;     /* Default body — brand book uses 12–14 */
+  --fs-small:          12px;
+  --fs-caption:        11px;     /* eyebrow / label */
+
+  --lh-tight:          1.1;      /* hero/display */
+  --lh-snug:           1.2;      /* h1/h2 */
+  --lh-heading:        1.22;     /* h3 */
+  --lh-body:           1.55;
+  --lh-relaxed:        1.7;
+
+  --ls-tight:          -0.01em;  /* display / hero */
+  --ls-tight-sm:       -0.005em; /* h1/h2 */
+  --ls-wide:           1.5px;
+  --ls-wider:          2.5px;
+
+  /* ──────────────── SPACING / RADIUS / SHADOW ──────────────── */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii — brand book uses generous rounding (the type-hierarchy strip is
+   * radius 40, the dark callout card is radius 40, swatches are 24, tag
+   * pills are pill-shaped). */
+  --radius-xs:    4px;
+  --radius-sm:    6px;
+  --radius-md:    8px;     /* inputs */
+  --radius-lg:   12px;     /* small cards */
+  --radius-xl:   16px;     /* buttons, mid cards */
+  --radius-2xl:  24px;     /* swatches, hero cards */
+  --radius-3xl:  40px;     /* dark/feature cards from brand book */
+  --radius-pill: 999px;
+
+  /* Shadows — brand book uses soft Navy-tinted drop shadows (rgba(10,24,74,*)). */
+  --shadow-xs:  0 1px 2px rgba(10, 24, 74, 0.06);
+  --shadow-sm:  0 1px 3px rgba(10, 24, 74, 0.08), 0 1px 2px rgba(10, 24, 74, 0.05);
+  --shadow-md:  0 6px 16px -4px rgba(10, 24, 74, 0.12), 0 2px 4px rgba(10, 24, 74, 0.06);
+  --shadow-lg:  0 18px 40px -8px rgba(10, 24, 74, 0.18), 0 6px 12px -4px rgba(10, 24, 74, 0.08);
+  --shadow-xl:  0 25px 29px rgba(10, 24, 74, 0.20);   /* brand-book signature card shadow */
+  --shadow-focus: 0 0 0 3px rgba(43, 204, 137, 0.30);
+
+  --duration-fast: 120ms;
+  --duration-med:  180ms;
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ──────────────── BACKWARD-COMPAT ALIASES ────────────────
+   * Older UI kits referenced --reeco-green / --reeco-midnight / etc.
+   * Map those to the canonical brand-book tokens so existing markup
+   * picks up the corrected palette without per-file rewrites. */
+  --reeco-green:        var(--mint-500);
+  --reeco-green-dark:   var(--mint-700);
+  --reeco-green-light:  var(--mint-100);
+  --reeco-green-border: var(--mint-200);
+  --reeco-midnight:     var(--navy-900);   /* was an off-brand #1A1A2E — now Navy */
+  --reeco-midnight-2:   var(--navy-800);
+  --reeco-charcoal:     var(--stone-700);
+  --reeco-slate:        var(--stone-500);
+  --reeco-cloud:        var(--stone-300);
+  --reeco-fog:          var(--stone-200);
+  --reeco-mist-bg:      var(--stone-100);
+  --reeco-white:        var(--white);
+
+  --reeco-warning:      var(--sun-500);
+  --reeco-danger:       var(--rose-500);
+  --reeco-danger-bg:    var(--rose-100);
+  --reeco-danger-border:var(--rose-200);
+  --reeco-success-bg:   var(--mint-100);
+  --reeco-success-text: var(--mint-800);
+}
+
+/* ──────────────── BASE ──────────────── */
+body, .rc-body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ──────────────── HEADINGS ──────────────── */
+.rc-hero {
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-black);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  color: var(--fg-1);
+}
+.rc-display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.rc-h1, h1.rc {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-black);     /* Inter Black per brand book */
+  letter-spacing: var(--ls-tight-sm);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.rc-h2, h2.rc {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight-sm);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.rc-h3, h3.rc {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  color: var(--fg-1);
+}
+
+/* ──────────────── BODY VARIANTS ──────────────── */
+.rc-body-lg {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.rc-body, p.rc {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.rc-small {
+  font-size: var(--fs-small);
+  color: var(--fg-3);
+}
+.rc-link {
+  color: var(--fg-link);
+  font-weight: var(--fw-semi);
+  text-decoration: none;
+}
+.rc-link:hover { text-decoration: underline; }
+
+/* ──────────────── EYEBROW / LABEL ──────────────── */
+.rc-eyebrow {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.rc-eyebrow-mint { color: var(--mint-700); }
+.rc-label {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semi);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.rc-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+/* ──────────────── BRAND HOUSE MARKERS ──────────────── */
+/* The brand book uses /// as a prefix marker on bullets and as a divider
+ * between brand-name and role (e.g. "Mint Green /// Primary"). */
+.rc-slash::before {
+  content: "/// ";
+  color: var(--mint-500);
+  font-weight: var(--fw-bold);
+}
+.rc-slash-divider {
+  color: var(--stone-500);
+  font-weight: var(--fw-bold);
+  margin: 0 0.5em;
+}
